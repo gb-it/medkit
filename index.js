@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2017. All rights reserved.
  * @version 1.0
  * @description 
- * @category healthkit
+ * @category medkit
  * @example
  */
 

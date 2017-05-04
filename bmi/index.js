@@ -12,7 +12,7 @@
  * @version 1.0
  * @description Resources: http://fddb.info/db/de/lexikon/bmi/index.html ; https://de.wikipedia.org/wiki/Body-Mass-Index
  * @static
- * @memberOf healthkit
+ * @memberOf medkit
  * @alias 
  * @category bmi
  * @param {int} height The height of person in cm or in.
