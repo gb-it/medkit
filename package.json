@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gb-it/healthkit.git"
+    "url": "git+https://github.com/gb-it/medkit.git"
   },
   "keywords": [
     "bmi",
@@ -19,9 +19,9 @@
   "author": "Sören Sauerbrei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gb-it/healthkit/issues"
+    "url": "https://github.com/gb-it/medkit/issues"
   },
-  "homepage": "https://github.com/gb-it/healthkit#readme",
+  "homepage": "https://github.com/gb-it/medkit#readme",
   "dependencies": {
     "lodash.assign": "^4.2.0",
     "lodash.foreach": "^4.5.0"
