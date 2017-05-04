@@ -280,7 +280,7 @@ BMI.prototype.calc = function() {
 		0: 'Very severely underweight',
 		1: 'Severely underweight',
 		2: 'Underweight',
-		3: 'Healty',
+		3: 'Healthy',
 		4: 'Overweight',
 		5: 'Obese Class I',
 		6: 'Obese Class II',

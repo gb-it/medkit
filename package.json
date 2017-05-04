@@ -1,0 +1,32 @@
+{
+  "name": "healthkit",
+  "version": "0.1.0",
+  "description": "This Package provides tools for medical purposes. Developed by Charité Berlin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gb-it/healthkit.git"
+  },
+  "keywords": [
+    "bmi",
+    "healthkit",
+    "charite",
+    "medical"
+  ],
+  "author": "Sören Sauerbrei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gb-it/healthkit/issues"
+  },
+  "homepage": "https://github.com/gb-it/healthkit#readme",
+  "dependencies": {
+    "lodash.assign": "^4.2.0",
+    "lodash.foreach": "^4.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.3.0"
+  }
+}
