@@ -1,12 +1,38 @@
-/* 
+/**
  * ================================================================
  * It is licensed under the MIT License 
  * ================================================================
+ * 
+ * This Package calculates the correct BMI by given Values like Mass, 
+ * Age and Gender. It references to a couple of different BMI-Tables 
+ * for any given combination.
+ *
  * @author Sören Sauerbrei - Charité Universitätsklinik Berlin
  * @copyright Copyright (c) 2017. All rights reserved.
  * @version 1.0
  * @description Resources: http://fddb.info/db/de/lexikon/bmi/index.html ; https://de.wikipedia.org/wiki/Body-Mass-Index
- * @example 
+ * @static
+ * @memberOf healthkit
+ * @alias 
+ * @category bmi
+ * @param {int} height The height of person in cm or in.
+ * @param {int} mass The mass of person in kg or lbs.
+ * @param {bool} usePounds Check this to true, if you are using inches and pounds!
+ * @returns {Object} Returns `bmi`.
+ * @example
+ *
+ * // standard call
+ * bmi(176,78);
+ * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 176, mass: 78, measurement: 'kilograms/metres' }
+ *
+ * // using more specification like gender and age
+ * bmi(176,78).setGender('m').setAge(56);
+ * // => { 'index': '25.2', 'message': 'Healthy', 'gender': 'male', age: 56, height: 176, mass: 78, measurement: 'kilograms/metres' }
+ *
+ * // you even are able to use pounds and inches
+ * bmi(69.3,172).usePounds(true);
+ * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 69.3, mass: 172, measurement: 'pounds/inches' }
+ * 
  */
 
 'use strict';
@@ -116,9 +142,10 @@ BMI.prototype.setGender = function(gender) {
  * @returns {BMI}
  */
 BMI.prototype.calc = function() {
-	this.index = (this.mass / Math.pow(this.height/100,2)).toFixed(1);
-	
-	if (this.measurement === 'pounds/inches') this.index *= 703;
+	this.index = (this.measurement === 'pounds/inches' ? 
+					(this.mass / this.height / this.height) * 703 : 
+					(this.mass / Math.pow(this.height/100,2))
+	).toFixed(1);
 
 	var defaultIndexes = {
 		0: '16',
