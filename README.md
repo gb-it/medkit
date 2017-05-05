@@ -7,7 +7,7 @@ Main Developer: [Sören Sauerbrei](https://github.com/Sauerbrei)
 # [![npm version](https://badge.fury.io/js/medkit.svg)](https://badge.fury.io/js/medkit.svg) Reference
 
 - [medkit](#medkit)
-  - [`bmi(height, mass, [usePounds])`](#bmiheightmass-usepounds)
+  - [`bmi(height, mass, [usePounds])`](#bmiheightmass-usePounds)
     - [`bmi.setHeight(value)`](#bmisetheightvalue)
     - [`bmi.setMass(value)`](#bmisetmassvalue)
     - [`bmi.setAge(value)`](#bmisetagevalue)
@@ -41,18 +41,29 @@ bmi(180,80);
 Sets the patient's height
 * `value` must be integer in centimeter or inch.
 
-Note that this parameter is mandatory and may be set via the [constructor](#bmi)
+Note that this parameter is mandatory and may be set via the [constructor](#bmiheightmass-usePounds)
 
 
 
 #### `bmi.setMass(value)`
+
+Sets the patient's mass.
+* `value` must be integer.
+
+Note that this parameter is mandatory and may be set via the [constructor](#bmiheightmass-usePounds)
+
+
+
+#### `bmi.setAge(value)`
 
 Sets the patient's age.
 * `value` must be integer.
 
 Based on the age the results may differ.
 
-#### `bmi.setGender()`
+
+
+#### `bmi.setGender(value)`
 
 Sets the patient's gender.
 * `value` mixed

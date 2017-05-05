@@ -1,6 +1,6 @@
 {
   "name": "medkit",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "This Package provides tools for medical purposes. Developed by Charité Berlin.",
   "main": "index.js",
   "scripts": {
