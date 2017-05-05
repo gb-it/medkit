@@ -7,12 +7,12 @@ Main Developer: [Sören Sauerbrei](https://github.com/Sauerbrei)
 # [![npm version](https://badge.fury.io/js/medkit.svg)](https://badge.fury.io/js/medkit.svg) Reference
 
 - [medkit](#medkit)
-  - [`bmi(height, mass, [usePounds])`](#bmi)
-    - [`bmi.setHeight(value)`](#bmisetheight)
-    - [`bmi.setMass(value)`](#bmisetmass)
-    - [`bmi.setAge(value)`](#bmisetage)
-    - [`bmi.setGender(value)`](#bmisetgender)
-    - [`bmi.usePounds(value)`](#bmiusepounds)
+  - [`bmi(height, mass, [usePounds])`](#bmiheightmass-usepounds)
+    - [`bmi.setHeight(value)`](#bmisetheightvalue)
+    - [`bmi.setMass(value)`](#bmisetmassvalue)
+    - [`bmi.setAge(value)`](#bmisetagevalue)
+    - [`bmi.setGender(value)`](#bmisetgendervalue)
+    - [`bmi.usePounds(value)`](#bmiusepoundsvalue)
     - [`bmi.getRangeTable()`](#bmigetrangetable)
     - [`bmi.calc()`](#bmicalc)
   
@@ -76,7 +76,7 @@ bmi().setGender('false');  //male
 bmi().setGender(1);        //female
 ```
 
-#### `bmi.usePounds()`
+#### `bmi.usePounds(value)`
 
 Indicates if you want to use pounds/inches or kilograms/centimeters.
 * `value` bool
