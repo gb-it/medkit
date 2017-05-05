@@ -1,4 +1,3 @@
-![Charite Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Logo_Charite.svg/150px-Logo_Charite.svg.png)
 
 This Package provides tools for medical purposes. Developed by Charité Berlin.
 
