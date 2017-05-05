@@ -1,4 +1,4 @@
-![Charite Logo](https://upload.wikimedia.org/wikipedia/commons/5/51/Logo_Charite.svg)
+![Charite Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Logo_Charite.svg/150px-Logo_Charite.svg.png)
 
 This Package provides tools for medical purposes. Developed by Charité Berlin.
 
@@ -7,12 +7,12 @@ Main Developer: [Sören Sauerbrei](https://github.com/Sauerbrei)
 # [![npm version](https://badge.fury.io/js/medkit.svg)](https://badge.fury.io/js/medkit.svg) Reference
 
 - [medkit](#medkit)
-  - [`bmi(height, mass, [usePounds])`](#bmiheightmass-usePounds)
+  - [`bmi(height, mass, [usePounds])`](#bmiheight-mass-usepounds)
+    - [`bmi.usePounds(value)`](#bmiusepoundsvalue)
     - [`bmi.setHeight(value)`](#bmisetheightvalue)
     - [`bmi.setMass(value)`](#bmisetmassvalue)
     - [`bmi.setAge(value)`](#bmisetagevalue)
     - [`bmi.setGender(value)`](#bmisetgendervalue)
-    - [`bmi.usePounds(value)`](#bmiusepoundsvalue)
     - [`bmi.getRangeTable()`](#bmigetrangetable)
     - [`bmi.calc()`](#bmicalc)
   
@@ -36,12 +36,24 @@ bmi(180,80);
 // }
 ```
 
+
+
+#### `bmi.usePounds(value)`
+
+Indicates if you want to use pounds/inches or kilograms/centimeters.
+* `value` bool
+
+Note that this parameter may be set via the [constructor](#bmi) and is initially set to `false`.
+Will change the `measurement` automatically.
+
+
+
 #### `bmi.setHeight(value)`
 
 Sets the patient's height
 * `value` must be integer in centimeter or inch.
 
-Note that this parameter is mandatory and may be set via the [constructor](#bmiheightmass-usePounds)
+Note that this parameter is mandatory and may be set via the [constructor](#bmiheight-mass-usepounds)
 
 
 
@@ -50,7 +62,7 @@ Note that this parameter is mandatory and may be set via the [constructor](#bmih
 Sets the patient's mass.
 * `value` must be integer.
 
-Note that this parameter is mandatory and may be set via the [constructor](#bmiheightmass-usePounds)
+Note that this parameter is mandatory and may be set via the [constructor](#bmiheight-mass-usepounds)
 
 
 
@@ -87,13 +99,9 @@ bmi().setGender('false');  //male
 bmi().setGender(1);        //female
 ```
 
-#### `bmi.usePounds(value)`
 
-Indicates if you want to use pounds/inches or kilograms/centimeters.
-* `value` bool
 
-Note that this parameter may be set via the [constructor](#bmi) and is initially set to `false`.
-Will change the `measurement` automatically.
+
 
 #### `bmi.getRangeTable()`
 

@@ -189,8 +189,8 @@ function BMI(height , mass , usePounds) {
 	this.height = height;
 	this.mass = mass;
 	this.measurement = null;
-	
 	this.usePounds(usePounds);
+	
 	return this;
 };
 
@@ -323,8 +323,8 @@ BMI.prototype.setMass = function(mass) {
  * @param {float} mass
  * @returns {BMI}
  */
-function constructor(height, mass) {
-	return new BMI(height, mass);
+function constructor(height, mass, usePounds) {
+	return new BMI(height, mass, usePounds);
 }
 
 /**
