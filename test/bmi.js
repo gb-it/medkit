@@ -21,4 +21,7 @@ describe('bmi', function() {
 	it('(180,80,true).calc().index should return 1.7', function() {
 		assert.equal(bmi(180,80,true).calc().index, 1.7);
 	});
+	it('(180,80).getIndex() should return 24.7', function() {
+		assert.equal(bmi(180,80).getIndex(), 24.7);
+	});
 });

@@ -12,14 +12,20 @@ Main Developer: [Sören Sauerbrei](https://github.com/Sauerbrei)
     - [`bmi.setMass(value)`](#bmisetmassvalue)
     - [`bmi.setAge(value)`](#bmisetagevalue)
     - [`bmi.setGender(value)`](#bmisetgendervalue)
+    - [`bmi.getIndex()`](#bmigetindex)
     - [`bmi.getRangeTable()`](#bmigetrangetable)
     - [`bmi.calc()`](#bmicalc)
   
 
 ## medkit
 
+---
+
 ### `bmi(height, mass, [usePounds])`
 Constructor
+- `integer` Height - cm or in
+- `integer` Mass - kg or lbs
+- `bool` usePounds switch between measurements. See [function](#bmiusepoundsvalue) for more information.
 
 ```js
 const bmi = require('medkit').bmi;
@@ -31,7 +37,7 @@ bmi(180,80);
 //    age: null,
 //    height: 180,
 //    mass: 80,
-//    measurement: 'kilograms/centimeters'
+//    measurement: 'centimeters/kilograms'
 // }
 ```
 
@@ -39,7 +45,9 @@ bmi(180,80);
 
 #### `bmi.usePounds(value)`
 
-Indicates if you want to use pounds/inches or kilograms/centimeters.
+Indicates if you want to use **pounds/inches** or **kilograms/centimeters**.
+Only these combinations are available.
+
 * `value` bool
 
 Note that this parameter may be set via the [constructor](#bmi) and is initially set to `false`.
@@ -100,6 +108,17 @@ bmi().setGender(1);        //female
 
 
 
+#### `bmi.getIndex()`
+
+Returns the BMI-Number.
+
+```js
+bmi(180,80).getIndex();
+// => 24.7
+```
+
+
+
 
 
 #### `bmi.getRangeTable()`
@@ -134,7 +153,9 @@ bmi(180,80).setGender('m').setAge(33).calc();
 //    age: 33,
 //    height: 180,
 //    mass: 80,
-//    measurement: 'kilograms/centimeters'
+//    measurement: 'centimeters/kilograms'
 // }
 ```
+
+---
 

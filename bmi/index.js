@@ -23,15 +23,15 @@
  *
  * // standard call
  * bmi(176,78).calc();
- * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 176, mass: 78, measurement: 'kilograms/metres' }
+ * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 176, mass: 78, measurement: 'centimeters/kilograms' }
  *
  * // using more specification like gender and age
  * bmi(176,78).setGender('m').setAge(56).calc();
- * // => { 'index': '25.2', 'message': 'Healthy', 'gender': 'male', age: 56, height: 176, mass: 78, measurement: 'kilograms/metres' }
+ * // => { 'index': '25.2', 'message': 'Healthy', 'gender': 'male', age: 56, height: 176, mass: 78, measurement: 'centimeters/kilograms' }
  *
  * // you even are able to use pounds and inches
  * bmi(69.3,172).usePounds(true).calc();
- * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 69.3, mass: 172, measurement: 'pounds/inches' }
+ * // => { 'index': '25.2', 'message': 'Overweight', 'gender': 'unknown', age: 0, height: 69.3, mass: 172, measurement: 'inches/pounds' }
  * 
  * // it is possible to receive the used personalized RangeTable as well
  * bmi(69.3,172).setGender('m').getRangeTable();
@@ -202,7 +202,7 @@ function BMI(height , mass , usePounds) {
  * @returns {BMI}
  */
 BMI.prototype.usePounds = function(usePounds) {
-	this.measurement = (usePounds === true ? 'pounds/inches' : 'kilograms/centimeters');
+	this.measurement = (usePounds === true ? 'inches/pounds' : 'centimeters/kilograms');
 	return this;
 };
 
@@ -213,7 +213,7 @@ BMI.prototype.usePounds = function(usePounds) {
  */
 BMI.prototype.calc = function() {
 	// calculating the BMI
-	this.index = getBMIValue(this);
+	this.index = this.getIndex();
 	
 	// calculating the specific Range-Table
 	var thisRange = getRange(this);
@@ -237,6 +237,23 @@ BMI.prototype.calc = function() {
 	}.bind(this));
 	
 	return this;	
+};
+
+
+/**
+ * Returns only the BMI-Value
+ * @returns {Number}
+ * @example 
+ * 
+ * BMI(180,80).getIndex()
+ * // => 24.7
+ * 
+ */
+BMI.prototype.getIndex = function() {
+	return (this.measurement === 'inches/pounds' ? 
+					(this.mass / this.height / this.height) * 703 : 
+					(this.mass / Math.pow(this.height/100,2))
+	).toFixed(1);
 };
 
 
@@ -321,28 +338,13 @@ BMI.prototype.setMass = function(mass) {
  * @private
  * @param {integer} height
  * @param {float} mass
+ * @param {bool} usePounds
  * @returns {BMI}
  */
 function constructor(height, mass, usePounds) {
 	return new BMI(height, mass, usePounds);
 }
 
-/**
- * Calculates the BMI-Value
- * @param {BMI} BMIObj
- * @returns {Number}
- * @example 
- * 
- * getBMIValue(BMI(180,80).calc())
- * // => 24.7
- * 
- */
-function getBMIValue(BMIObj) {
-	return (BMIObj.measurement === 'pounds/inches' ? 
-					(BMIObj.mass / BMIObj.height / BMIObj.height) * 703 : 
-					(BMIObj.mass / Math.pow(BMIObj.height/100,2))
-	).toFixed(1);
-}
 
 /**
  * Maps the Messages as Key for Ranges
