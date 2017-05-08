@@ -1,5 +1,5 @@
 
-This Package provides tools for medical purposes. Developed by Charité Berlin.
+This Package provides tools for medical purposes.
 
 Main Developer: [Sören Sauerbrei](https://github.com/Sauerbrei)
 
