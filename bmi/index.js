@@ -218,23 +218,26 @@ BMI.prototype.calc = function() {
 	// calculating the specific Range-Table
 	var thisRange = getRange(this);
 	
-	// updating the Result
-	_.each(thisRange, function(v,k) {
-		var indexes = v.split('-').map(function(val) { return parseInt(val); });
-		if (k === '0') {
-			if (this.index < indexes[0]) {
-				this.message = defaultMessages[k];
+	if (this.index && this.index > 0) {
+		// updating the Result
+		_.each(thisRange, function(v,k) {
+			var indexes = v.split('-').map(function(val) { return parseInt(val); });
+			if (k === '0') {
+				if (this.index < indexes[0]) {
+					this.message = defaultMessages[k];
+				}
+			} else if (k === '7') {
+				if (this.index >= indexes[0]) {
+					this.message = defaultMessages[k];
+				}
+			} else {
+				if (this.index >= indexes[0] && this.index < indexes[1]) {
+					this.message = defaultMessages[k];
+				}
 			}
-		} else if (k === '7') {
-			if (this.index >= indexes[0]) {
-				this.message = defaultMessages[k];
-			}
-		} else {
-			if (this.index >= indexes[0] && this.index < indexes[1]) {
-				this.message = defaultMessages[k];
-			}
-		}
-	}.bind(this));
+		}.bind(this));
+	}
+	
 	
 	return this;	
 };
