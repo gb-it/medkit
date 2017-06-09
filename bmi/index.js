@@ -253,10 +253,14 @@ BMI.prototype.calc = function() {
  * 
  */
 BMI.prototype.getIndex = function() {
-	return (this.measurement === 'inches/pounds' ? 
-					(this.mass / this.height / this.height) * 703 : 
-					(this.mass / Math.pow(this.height/100,2))
-	).toFixed(1);
+	if (this.mass && this.height) {
+		return (this.measurement === 'inches/pounds' ? 
+						(this.mass / this.height / this.height) * 703 : 
+						(this.mass / Math.pow(this.height/100,2))
+		).toFixed(1);
+	} else {
+		return null;
+	}
 };
 
 

@@ -24,4 +24,10 @@ describe('bmi', function() {
 	it('(180,80).getIndex() should return 24.7', function() {
 		assert.equal(bmi(180,80).getIndex(), 24.7);
 	});
+	it('(null,null).getIndex() should return null', function() {
+		assert.equal(bmi(null,null).getIndex(), null);
+	});
+	it('(null,null).calc().index should return null', function() {
+		assert.equal(bmi(null,null).calc().index, null);
+	});
 });
